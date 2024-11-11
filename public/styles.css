@@ -1,0 +1,16 @@
+h1 {
+    color: blue;
+}
+
+span {
+    color: green;
+}
+
+/* Basic styling for the hidden form */
+#createTaskForm {
+    display: none; /* Hide the form by default */
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f9f9f9;
+}

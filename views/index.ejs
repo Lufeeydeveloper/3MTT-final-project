@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Management</title>
+</head>
+<body>
+    <h1>Welcome to Task Management</h1>
+    <nav>
+        <% if (user) { %> <!-- Check if user is logged in -->
+            <a href="/dashboard">Dashboard</a> <!-- Show dashboard link -->
+            <form action="/logout" method="POST" style="display:inline;">
+                <button type="submit">Logout</button> <!-- Show logout button -->
+            </form>
+        <% } else { %> <!-- If not logged in -->
+            <a href="/register">Register</a> <!-- Show register link -->
+            <a href="/login">Login</a> <!-- Show login link -->
+        <% } %>
+    </nav>
+</body>
+</html>
