@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1.salutation{
+    font-size: 3em;
+    text-align: center;
+    line-height: 350px;
+}
+
+section.outCon {
+    width: 100vw;
+    height: 50vh;
+}
+
+div.innerCon {
+    width: 75%;
+    margin: auto;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    z-index: 1000;
+    background-color: #0505be;
+    height: 50px;
+
+}
+
+header nav {
+    float: right;
+    display: flex;
+    height: 100%;
+}
+
+header nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1em;
+    margin-left: 2px;
+    height: 50px;
+    line-height: 50px;
+    width: 100px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+header nav a:hover {
+    background-color: #ffff;
+    color: #0505be;
+    height: 50px;
+    line-height: 50px;
+}
+
+header nav button {
+    color: #1f07a7;
+    background-color: yellow;
+    font-size: 1em;
+    margin-left: 2px;
+    height: 50px;
+    line-height: 50px;
+    width: 100px;
+    text-align: center;
+}
+
+header nav button:hover {
+    background-color: #ffff;
+    color: #0505be;
+    height: 50px;
+    line-height: 50px;
+}
+
+section.hero,
+section.banner {
+    margin-top: 35px;
+}
+
+section.hero {
+
+}

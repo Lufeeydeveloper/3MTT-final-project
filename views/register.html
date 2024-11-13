@@ -2,16 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/form.css">
+    <link rel="stylesheet" href="/general.css">
+    
     <title>Register</title>
 </head>
 <body>
-    <h1>Register</h1>
-    <form action="/register" method="POST">
-        <input type="text" name="firstName" placeholder="First Name" required><br>
-        <input type="text" name="otherNames" placeholder="Other Names"><br>
-        <input type="email" name="email" placeholder="Email" required><br>
-        <input type="password" name="password" placeholder="Password" required><br>
-        <button type="submit">Register</button>
-    </form>
+    <main>
+        <section class="outCon">
+            <div class="innerCon">
+                <div class="formTitle">
+                    <h1>Register</h1>
+                </div>
+                <form action="/register" method="POST">
+                    <input type="text" name="firstName" placeholder="First Name" required><br>
+                    <input type="text" name="otherNames" placeholder="Other Names"><br>
+                    <input type="email" name="email" placeholder="Email" required><br>
+                    <input type="password" name="password" placeholder="Password" required><br>
+                    <button type="submit">Register</button>
+                </form>
+            </div>
+        </section>
+    </main>
 </body>
 </html>

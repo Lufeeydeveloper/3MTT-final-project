@@ -2,14 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/general.css">
+    <link rel="stylesheet" href="/form.css">
     <title>Login</title>
 </head>
 <body>
-    <h1>Login</h1>
-    <form action="/login" method="POST">
-        <input type="email" name="email" placeholder="Email" required><br>
-        <input type="password" name="password" placeholder="Password" required><br>
-        <button type="submit">Login</button>
-    </form>
+    <main>
+        <section class="outCon">
+            <div class="innerCon">
+                <div class="authTitle">
+                    <h1 class="authTitle">Login</h1>
+                </div>            
+                <form action="/login" method="POST">
+                    <label for="email">
+                        Email: <br>
+                        <input type="email" name="email" placeholder="Email" required id="email" class="taskName">
+                    </label>
+                    
+                    <label for="password">
+                        Password: <br>
+                        <input type="password" name="password" placeholder="Password" required id="Password" class="taskName">
+                    </label>
+
+                    <div class="submit">
+                        <button type="submit" class="submit">Login</button>
+                    </div>
+
+                    <p>
+                        Forgot Password? <a href="http://#" target="_blank" rel="noopener noreferrer">Click Here</a>
+                    </p>
+
+                    <br>
+                    You Don't Have an Account? <a href="/register.html">Register Here</a>
+
+                    <p>
+                        &dbkarow; OR Sign Up with
+                    </p>
+
+                    <div class="socialBtnCon">
+                        <button type="button" class="socialBtn">G</button>
+                        <button type="button" class="socialBtn">In</button>
+                        <button type="button" class="socialBtn">F</button>
+                        <button type="button" class="socialBtn">G</button>
+                    </div>
+                    
+                    
+                    
+                </form>
+            </div>
+        </section>
+    </main>
 </body>
 </html>

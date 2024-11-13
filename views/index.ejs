@@ -2,22 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/general.css">
+    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/form.css">
    
     <title>Task Management</title>
 </head>
 <body>
-    <h1>Welcome to Task Management</h1>
-    <nav>
-        <% if (user) { %> <!-- Check if user is logged in -->
-            <a href="/dashboard">Dashboard</a> <!-- Show dashboard link -->
-            <form action="/logout" method="POST" style="display:inline;">
-                <button type="submit">Logout</button> <!-- Show logout button -->
-            </form>
-        <% } else { %> <!-- If not logged in -->
-            <a href="/register">Register</a> <!-- Show register link -->
-            <a href="/login">Login</a> <!-- Show login link -->
-        <% } %>
-    </nav>
+    <header>
+        <div class="innerCon">
+            <nav>
+                <% if (user) { %> <!-- Check if user is logged in -->
+                    <a href="/dashboard">Dashboard</a> <!-- Show dashboard link -->
+                    <form action="/logout" method="POST" style="display:inline;">
+                        <button type="submit">Logout</button> <!-- Show logout button -->
+                    </form>
+                <% } else { %> <!-- If not logged in -->
+                    <a href="/register">Register</a> <!-- Show register link -->
+                    <a href="/login">Login</a> <!-- Show login link -->
+                <% } %>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero outCon">
+        <div class="innerCon">
+            <h1 class="salutation">Welcome to Task Master</h1>
+
+            <div class="description">
+                <p>
+                    3MTT Cohort 2 <span class="track">Software Development</span> Capstone, <span class="date">November, 2024 </span> by
+                    <br><span class="developer">BABANGIDA YOHANNA</span> <br> <span class="fellowID">FE&sol;23&sol;92158969</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        
+    </main>
+    
+
+    <script src="/scripts/livechat.js"></script>
 
      <!--Start of Tawk.to Script-->
 <script type="text/javascript">
