@@ -74,7 +74,8 @@ header nav button {
     height: 50px;
     line-height: 50px;
     width: 100px;
-    text-align: center;
+    border: none;
+    box-shadow: outset 2 3 5 2 whitesmoke;
 }
 
 header nav button:hover {
@@ -87,8 +88,4 @@ header nav button:hover {
 section.hero,
 section.banner {
     margin-top: 35px;
-}
-
-section.hero {
-
 }
