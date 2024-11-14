@@ -6,7 +6,7 @@ const path = require('path'); // For handling file paths
 require('dotenv').config(); // Load environment variables from .env
 const router = express.Router();
 
-const authRoutes = require('./routes/authupgrade'); // Authentication routes
+const authRoutes = require('./routes/auth'); // Authentication routes
 const taskRoutes = require('./routes/tasks'); // Task management routes
 
 const app = express();
