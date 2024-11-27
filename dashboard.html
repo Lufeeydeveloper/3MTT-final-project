@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/general.css">
+    <link rel="stylesheet" href="/form.css">
+
+
+    <title>User Dashboard</title>
+</head>
+<body>
+    <header>
+       <div class="innerCon">
+        <nav>
+            <a href="/">Home</a>
+            <!-- Show logout button -->
+            <form action="/logout" method="POST">
+                <button type="submit">Logout</button>
+            </form>
+    
+        </nav>
+       </div>
+    </header>
+
+    <section class="hero outCon">
+        <div class="innerCon">
+            <h1 class="salutation">Welcome <span><%= user.firstName %> <% if (user.otherNames) { %> <%= user.otherNames %> <% } %></span></h1>
+        </div>
+        
+    </section>
+    
+    <main>
+        <section class="outCOn seach-filter-container">
+            <div class="innerCon">
+                <div class="titleIntro">
+                    <!-- Display user's tasks -->
+                    <h2>Your Tasks</h2>
+                </div>
+                <!-- Button to toggle form visibility -->
+                <button id="toggleTaskFormButton">Create New Task</button>
+            </div>
+        </section>
+        <section id="createTaskForm">
+            <div class="innerCon">
+                <h2>Create New Task</h2>
+                <form action="/tasks" method="POST">
+                    <label for="taskName">
+                        Task Name: <br>
+                        <input type="text" id="taskName" name="taskName" required class="taskName" placeholder="Name your Task">
+                    </label>
+                    
+            
+                    <label for="taskDescription">
+                        Task Description: <br>
+                        <textarea id="taskDescription" name="taskDescription" required placeholder="Write a short description of your task..."></textarea>
+                    </label>
+                    
+            
+                    <label for="taskPriority">
+                        Task Priority: 
+                        <select id="taskPriority" name="taskPriority" required>
+                            <option value="High">High</option>
+                            <option value="Moderate">Moderate</option>
+                            <option value="Low">Low</option>
+                        </select>
+                    </label>
+            
+                    <label for="creationDate">
+                        Creation Date: <input type="datetime-local" id="creationDate" name="creationDate" required>
+                    </label>
+            
+                    <label for="expectedCompletionDate">
+                        Due Date: <input type="datetime-local" id="expectedCompletionDate" name="expectedCompletionDate" required>
+                    </label>
+            
+                    <label for="taskStatus">
+                        Status:
+                        <select id="taskStatus" name="taskStatus" required>
+                            <option value="Not started">Not started</option>
+                            <option value="Ongoing">Ongoing</option>
+                            <option value="Done">Done</option>
+                            <option value="Fail">Fail</option>
+                        </select>
+                    </label>
+            
+                    <label for="remark">
+                        Remark: <br>
+                        <textarea id="remark" name="remark" placeholder="Write Remark..."></textarea>
+                    </label>
+            
+                   <div class="submit">
+                        <button type="submit" class="submit">Submit Task</button>
+                   </div>
+                </form>
+            </div>
+        </section>
+        <!-- <section id="createTaskForm">
+            <div class="innerCon">
+                 Hidden form for creating a new task 
+                
+                <h2>Create New Task</h2>
+                <form action="/tasks" method="POST">
+                    <label for="taskName">Task Name:</label>
+                    <input type="text" id="taskName" name="taskName" required><br>
+            
+                    <label for="taskDescription">Task Description:</label>
+                    <textarea id="taskDescription" name="taskDescription" required></textarea><br>
+            
+                    <label for="taskPriority">Task Priority:</label>
+                    <select id="taskPriority" name="taskPriority" required>
+                        <option value="High">High</option>
+                        <option value="Moderate">Moderate</option>
+                        <option value="Low">Low</option>
+                    </select><br>
+            
+                    <label for="creationDate">Task Creation Date and Time:</label>
+                    <input type="datetime-local" id="creationDate" name="creationDate" required><br>
+            
+                    <label for="expectedCompletionDate">Expected Completion Date and Time:</label>
+                    <input type="datetime-local" id="expectedCompletionDate" name="expectedCompletionDate" required><br>
+            
+                    <label for="taskStatus">Task Status:</label>
+                    <select id="taskStatus" name="taskStatus" required>
+                        <option value="Not started">Not started</option>
+                        <option value="Ongoing">Ongoing</option>
+                        <option value="Done">Done</option>
+                        <option value="Fail">Fail</option>
+                    </select><br>
+            
+                    <label for="remark">Remark:</label>
+                    <textarea id="remark" name="remark"></textarea><br>
+            
+                    <button type="submit">Submit Task</button>
+                </form>
+            </div>
+        </section>
+         -->
+        <section class="outCOn">
+            <div class="innerCon">
+                <ul>
+                    <% tasks.forEach(task => { %> <!-- Loop through each task -->
+                        <li>
+                            <strong><%= task.taskName %></strong> - <%= task.taskDescription %> 
+                            (<%= task.taskStatus %>)
+                            <!-- Edit Button -->
+                            <form action="/tasks/edit/<%= task._id %>" method="POST" style="display:inline;">
+                                <!-- You can add fields here to edit the existing task -->
+                                <input type="text" name="taskName" value="<%= task.taskName %>" required />
+                                <input type="text" name="taskDescription" value="<%= task.taskDescription %>" required />
+                                <select name="taskPriority">
+                                    <option value="High" <% if(task.taskPriority === 'High') { %> selected <% } %>>High</option>
+                                    <option value="Moderate" <% if(task.taskPriority === 'Moderate') { %> selected <% } %>>Moderate</option>
+                                    <option value="Low" <% if(task.taskPriority === 'Low') { %> selected <% } %>>Low</option>
+                                </select>
+                                <input type="datetime-local" name="expectedCompletionDate" value="<%= new Date(task.expectedCompletionDate).toISOString().slice(0,16) %>" required />
+                                <select name="taskStatus">
+                                    <option value="Not started" <% if(task.taskStatus === 'Not started') { %> selected <% } %>>Not started</option>
+                                    <option value="Ongoing" <% if(task.taskStatus === 'Ongoing') { %> selected <% } %>>Ongoing</option>
+                                    <option value="Done" <% if(task.taskStatus === 'Done') { %> selected <% } %>>Done</option>
+                                    <option value="Fail" <% if(task.taskStatus === 'Fail') { %> selected <% } %>>Fail</option>
+                                </select>
+                                <!-- Remark field -->
+                                <textarea name="remark"><%= task.remark || '' %></textarea>
+        
+                                <!-- Submit Edit Button -->
+                                <button type="submit">Edit</button>
+                            </form>
+        
+                            <!-- Delete Button -->
+                            <form action="/tasks/delete/<%= task._id %>" method="POST" style="display:inline;">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </li>
+                    <% }) %>
+                </ul>
+            </div>
+        </section>
+
+
+        
+    </main>
+
+
+    <script>
+        // JavaScript to toggle the visibility of the task creation form
+        document.getElementById('toggleTaskFormButton').addEventListener('click', function() {
+            const taskForm = document.getElementById('createTaskForm');
+            if (taskForm.style.display === 'none') {
+                taskForm.style.display = 'block'; // Show the form
+                this.textContent = 'Hide Task Form'; // Change button text
+            } else {
+                taskForm.style.display = 'none'; // Hide the form
+                this.textContent = 'Create New Task'; // Reset button text
+            }
+        });
+    </script>
+
+<!-- Live chat -->
+<script src="/scripts/livechat.js"></script>
+</body>
+</html>
